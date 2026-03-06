@@ -61,7 +61,7 @@ void Calculator::run() {
                 default:
                     std::cout << "Invalid operator\n";
             }
-            std::cout << "-------------------------------\n";
+            std::cout << "---------------------------------\n";
         }
         std::cout << "Bye :)\n";
     }
