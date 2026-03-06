@@ -150,4 +150,5 @@ CMakeFiles/calc.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/ziyad/Desktop/CLionProjects/calc_app/include/calculator.h
+ /home/ziyad/Desktop/CLionProjects/calc_app/include/calculator.h \
+ /home/ziyad/Desktop/CLionProjects/calc_app/src/../include/calculator.h
