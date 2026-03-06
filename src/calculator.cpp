@@ -1,4 +1,5 @@
 #include "calculator.h"
+#include "../include/calculator.h"
 #include <iostream>
 
 double Calculator::add(double a, double b) {
@@ -14,54 +15,99 @@ double Calculator::mul(double a, double b) {
 }
 
 double Calculator::div(double a, double b) {
-    return a / b;
+    if (b == 0) {
+        std::cout << "Division by zero!\n";
+        return -1;
+    }
+    else {
+        return a / b;
+    }
+}
+void Calculator::intro() {
+    std::cout << "Hello budy welcome to calc app\n" << "You can make many calculations here\n";
+}
+int Calculator::choose() {
+    int input = 0;
+    while (true) {
+        std::cout << "Calculator Menu:\n";
+        std::cout << "1) mathmatic\n2) Area\n3) Volume\n4) other\n5) Quite\n";
+        std::cout << "Enter choice : ";
+        std::cin >> input;
+        if (input>=1 && input<=5) {
+            return input;
+        }
+        std::cout << "Wrong input. Please try again.\n";
+
+    }
+}
+void Calculator::mathmatic() {
+    double a {0}, b {0};
+    char op;
+    int in;
+    while (true) {
+        std::cout << "Choose: \n" << "1) make operation\n" <<  "2) quite\n";
+        std::cout << "Enter choice : ";
+        std::cin >> in;
+        if (in == 2) {
+            std::cout << "Thanks for using calculator!\n";
+            break;
+        }
+        else if (in < 1 || in > 2) {
+            std::cout << "Wrong input. Please try again.\n";
+        }
+        else if (in == 1) {
+            std::cout << "Enter expression\n";
+            std::cin >> a >> op >> b;
+            switch (op) {
+                case '+':
+                    std::cout << "-----------\n";
+                    std::cout << "Result add: " << add(a, b) << "\n";
+                    std::cout << "-----------\n";
+                    break;
+                case '-':
+                    std::cout << "-----------\n";
+                    std::cout << "Result sub: " <<sub(a,b) << "\n";
+                    std::cout << "-----------\n";
+                    break;
+                case '*':
+                    std::cout << "-----------\n";
+                    std::cout << "Result mul: " <<mul(a,b) << "\n";
+                    std::cout << "-----------\n";
+                    break;
+                case '/':
+                    std::cout << "-----------\n";
+                    std::cout << "Result div: " << div(a,b) << "\n";
+                    std::cout << "-----------\n";
+                    break;
+                default:
+                    std::cout << "-----------\n";
+                    std::cout << "Invalid operator.\n";
+            }
+        }
+
+    }
 }
 
-void Calculator::run() {
 
-        double a = 0, b = 0;
-        int choice = 0;
-        std::cout << "Hello to calc app\n";
-        while (true) {
-            std::cout << "Calculator Menu:\n";
-            std::cout << "1) Add\n2) Subtract\n3) Multiply\n4) Divide\n5) Quite\n";
-            std::cout << "Enter choice : ";
-            std::cin >> choice;
-            if (choice == 5) {
-                std::cout << "Quit\n";
-                break;
-            }
-            std::cout << "Enter a number: ";
-            std::cin >> a;
-            std::cout << "Enter b number: ";
-            std::cin >> b;
-            switch (choice) {
-                case 1:
-                    std::cout << "Addition\n";
-                    std::cout << "Result: " << add(a,b) << std::endl;
-                    break;
-                case 2:
-                    std::cout << "Subtraction\n";
-                    std::cout << "Result: "<< sub(a,b) << "\n";
-                    break;
-
-                case 3:
-                    std::cout << "Multiplication\n";
-                    std::cout << "Result: " << mul(a,b) << "\n";
-                    break;
-
-                case 4:
-                    std::cout << "Division\n";
-                    if(b != 0)
-                        std::cout << "Result: " << div(a,b) << "\n";
-                    else
-                        std::cout << "Division by zero\n";
-                    break;
-
-                default:
-                    std::cout << "Invalid operator\n";
-            }
-            std::cout << "---------------------------------\n";
+void Calculator::calculator() {
+    while (true) {
+        int choice = choose();
+        if (choice == 5) {
+            std::cout << "Bye :)\n";
+            break;
         }
-        std::cout << "Bye :)\n";
+        switch (choice) {
+            case 1:
+                mathmatic();
+                break;
+            default:
+                std::cout << "Invalid choice.\n";
+        }
     }
+}
+
+
+void Calculator::run() {
+    intro();
+    calculator();
+}

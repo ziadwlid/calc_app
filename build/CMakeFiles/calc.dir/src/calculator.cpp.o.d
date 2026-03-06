@@ -2,6 +2,7 @@ CMakeFiles/calc.dir/src/calculator.cpp.o: \
  /home/ziyad/Desktop/CLionProjects/calc_app/src/calculator.cpp \
  /usr/include/stdc-predef.h \
  /home/ziyad/Desktop/CLionProjects/calc_app/include/calculator.h \
+ /home/ziyad/Desktop/CLionProjects/calc_app/src/../include/calculator.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

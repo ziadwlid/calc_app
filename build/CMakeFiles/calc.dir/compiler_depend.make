@@ -3,6 +3,7 @@
 
 CMakeFiles/calc.dir/src/calculator.cpp.o: /home/ziyad/Desktop/CLionProjects/calc_app/src/calculator.cpp \
   /home/ziyad/Desktop/CLionProjects/calc_app/include/calculator.h \
+  /home/ziyad/Desktop/CLionProjects/calc_app/include/calculator.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

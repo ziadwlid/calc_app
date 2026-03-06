@@ -11,5 +11,10 @@ class Calculator {
         double mul(double a, double b);
         double div(double a, double b);
         void run ();
+        void intro();
+        int choose();
+        void calculator();
+        void mathmatic();
+
 };
 #endif
