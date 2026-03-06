@@ -1,0 +1,3 @@
+/home/ziyad/Desktop/CLionProjects/calc_app/build/CMakeFiles/calc.dir
+/home/ziyad/Desktop/CLionProjects/calc_app/build/CMakeFiles/edit_cache.dir
+/home/ziyad/Desktop/CLionProjects/calc_app/build/CMakeFiles/rebuild_cache.dir
