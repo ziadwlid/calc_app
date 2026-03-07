@@ -115,7 +115,7 @@ void Calculator::area() {
         std::cout << "Enter choice : ";
         std::cin >> in;
         if (in == 5) {
-            std::cout << "Thanks for using calculator!\n";
+            std::cout << "Thanks for using area calculator!\n";
             break;
         }
         else if (in < 1 || in > 5) {
@@ -176,6 +176,7 @@ void Calculator::calculator() {
                 break;
             case 2:
                 area();
+                break;
             default:
                 std::cout << "Invalid choice.\n";
         }
