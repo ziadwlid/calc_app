@@ -1,22 +1,43 @@
 #include "calculator.h"
 #include "../include/calculator.h"
+
+#include <cmath>
 #include <iostream>
+#include <math.h>
 
 
 void Calculator::intro() {
-    std::cout << "Hello budy welcome to calc app\n" << "You can make many calculations here\n";
+    std::cout << R"(  _    _      _ _                       _                            _                    _            _       _
+ | |  | |    | | |                     | |                          | |                  | |          | |     | |
+ | |__| | ___| | | ___    __      _____| | ___ ___  _ __ ___   ___  | |_ ___     ___ __ _| | ___ _   _| | __ _| |_ ___  _ __    __ _ _ __  _ __
+ |  __  |/ _ \ | |/ _ \   \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \   / __/ _` | |/ __| | | | |/ _` | __/ _ \| '__|  / _` | '_ \| '_ \
+ | |  | |  __/ | | (_) |   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | | (_| (_| | | (__| |_| | | (_| | || (_) | |    | (_| | |_) | |_) |
+ |_|  |_|\___|_|_|\___( )   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/   \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|     \__,_| .__/| .__/
+                      |/                                                                                                            | |   | |
+                                                                                                                                    |_|   |_|    )"<< "\n" << "You can make many calculations here\n";
 }
 int Calculator::choose() {
     int input = 0;
     while (true) {
-        std::cout << "Calculator Menu:\n";
-        std::cout << "1) mathmatic\n2) Area\n3) Volume\n4) other\n5) Quite\n";
+        std::cout << "\nCalculator Menu:\n";
+        std::cout << "1) mathmatic\n2) Area\n3) Perimeter\n4) Volume\n5) Quite\n";
         std::cout << "Enter choice : ";
         std::cin >> input;
         if (input>=1 && input<=5) {
+            if (input == 5) {
+                std::cout << R"( ______            _______
+(  ___ \ |\     /|(  ____ \
+| (   ) )( \   / )| (    \/
+| (__/ /  \ (_) / | (__
+|  __ (    \   /  |  __)
+| (  \ \    ) (   | (
+| )___) )   | |   | (____/\
+|/ \___/    \_/   (_______/
+                           )" << "\n";
+            }
             return input;
         }
-        std::cout << "Wrong input. Please try again.\n";
+        std::cout << "\nWrong input. Please try again.\n";
 
     }
 }
@@ -34,7 +55,7 @@ double Calculator::mul(double a, double b) {
 
 double Calculator::div(double a, double b) {
     if (b == 0) {
-        std::cout << "Division by zero!\n";
+        std::cout << "Division by zero!!!\n";
         return -1;
     }
     else {
@@ -47,15 +68,15 @@ void Calculator::mathmatic() {
     char op;
     int in;
     while (true) {
-        std::cout << "Choose: \n" << "1) make operation\n" <<  "2) quite\n";
+        std::cout << "\nChoose: \n" << "1) make operation\n" <<  "2) Return\n";
         std::cout << "Enter choice : ";
         std::cin >> in;
         if (in == 2) {
-            std::cout << "Thanks for using calculator!\n";
+            std::cout << "\nThanks for using calculator!\n";
             break;
         }
         else if (in < 1 || in > 2) {
-            std::cout << "Wrong input. Please try again.\n";
+            std::cout << "\nWrong input. Please try again.\n";
         }
         else if (in == 1) {
             std::cout << "Enter expression\n";
@@ -110,16 +131,18 @@ void Calculator::area() {
     double a {0}, b {0};
     int in {0};
     while (true) {
-        std::cout << "Choose: \n" << "1) Rectangle\n" <<  "2) Square\n"
-        <<  "3) Circle\n" <<  "4) Ellipse\n" <<  "5) Quit\n";
+        std::cout << "\nChoose: \n" << "1) Rectangle\n" <<  "2) Square\n"
+        <<  "3) Circle\n" <<  "4) Ellipse\n" <<  "5) Return\n";
         std::cout << "Enter choice : ";
         std::cin >> in;
         if (in == 5) {
+            std::cout << "----------------------------------\n";
             std::cout << "Thanks for using area calculator!\n";
+            std::cout << "----------------------------------\n";
             break;
         }
         else if (in < 1 || in > 5) {
-            std::cout << "Wrong input. Please try again.\n";
+            std::cout << "\nWrong input. Please try again.\n";
         }
         else {
             switch (in) {
@@ -133,7 +156,7 @@ void Calculator::area() {
                     std::cout << "------------\n";
                     break;
                 case 2:
-                    std::cout << "Enter square width: ";
+                    std::cout << "Enter square length: ";
                     std::cin >> a;
                     std::cout << "------------\n";
                     std::cout << "Area of square: " << area_sqr(a) << "\n";
@@ -162,12 +185,157 @@ void Calculator::area() {
         }
     }
 }
+double Calculator::perimeter_rec(double a, double b) {
+    return ( 2 * (a + b));
+}
+double Calculator::perimeter_sqr(double a) {
+    return (4 * a);
+}
+double Calculator::perimeter_circ(double a) {
+    return (2 * pi * a);
+}
+double Calculator::perimeter_eclp(double a, double b) {
+    double c {0};
+    return c = 2 * pi * sqrt((a * a + b * b) / (2 * 1.0));
+}
+void Calculator::perimeter() {
+    double a {0}, b {0};
+    int in {0};
+    while (true) {
+        std::cout << "\nChoose: \n" << "1) Rectangle\n" <<  "2) Square\n"
+        <<  "3) Circle\n" <<  "4) Ellipse\n" <<  "5) Return\n";
+        std::cout << "Enter choice : ";
+        std::cin >> in;
+        if (in == 5) {
+            std::cout << "----------------------------------\n";
+            std::cout << "Thanks for using perimeter calculator!\n";
+            std::cout << "----------------------------------\n";
+            break;
+        }
+        else if (in < 1 || in > 5) {
+            std::cout << "\nWrong input. Please try again.\n";
+        }
+        else {
+            switch (in) {
+                case 1:
+                    std::cout << "Enter rectangle width: ";
+                    std::cin >> a;
+                    std::cout << "Enter rectangle height: ";
+                    std::cin >> b;
+                    std::cout << "------------\n";
+                    std::cout << "Perimeter of rectangle: " << perimeter_rec(a, b) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 2:
+                    std::cout << "Enter square length: ";
+                    std::cin >> a;
+                    std::cout << "------------\n";
+                    std::cout << "Perimeter of rectangle: " << perimeter_sqr(a) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 3:
+                    std::cout << "Enter circle radius: ";
+                    std::cin >> a;
+                    std::cout << "------------\n";
+                    std::cout << "Perimeter of circle: " << perimeter_circ(a) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 4:
+                    std::cout << "Enter ellipse radius 1: ";
+                    std::cin >> a;
+                    std::cout << "Enter ellipse radius 2: ";
+                    std::cin >> b;
+                    std::cout << "------------\n";
+                    std::cout << "Perimeter of ellipse: " << perimeter_eclp(a, b) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                default:
+                    std::cout << "Invalid choice.\n";
+            }
+        }
+    }
+}
 
+double Calculator::volume_rec_prism(double a, double b, double c) {
+    return (a * b * c);
+}
+double Calculator::volume_sqr_prism(double a) {
+    return (pow(a, 3));
+}
+
+double Calculator::volume_sphere(double a) {
+    return ((4/3) * pi * pow(a, 3));
+}
+double Calculator::volume_elipsoid(double a, double b, double c) {
+    double out {0};
+    return out = (1.33 * pi * a * b * c);
+}
+
+void Calculator::volume() {
+    double a {0}, b {0}, c {0};
+    int in {0};
+    while (true) {
+        std::cout << "\nChoose: \n" << "1) Rectangle\n" <<  "2) Square\n" << "3) Shpere\n" <<
+            "4) Ellipsoid\n" <<  "5) Return\n";
+        std::cout << "Enter choice : ";
+        std::cin >> in;
+        if (in == 5) {
+            std::cout << "----------------------------------\n";
+            std::cout << "Thanks for using Volume calculator!\n";
+            std::cout << "----------------------------------\n";
+            break;
+        }
+        else if (in < 1 || in > 5) {
+            std::cout << "\nWrong input. Please try again.\n";
+        }
+        else {
+            switch (in) {
+                case 1:
+                    std::cout << "Enter rectangle width: ";
+                    std::cin >> a;
+                    std::cout << "Enter rectangle length: ";
+                    std::cin >> b;
+                    std::cout << "Enter rectangle height: ";
+                    std::cin >> c;
+                    std::cout << "------------\n";
+                    std::cout << "Volume of rectangle: " << volume_rec_prism(a, b, c) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 2:
+                    std::cout << "Enter square length: ";
+                    std::cin >> a;
+                    std::cout << "------------\n";
+                    std::cout << "Volume of rectangle: " << volume_sqr_prism(a) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 3:
+                    std::cout << "Enter circle radius: ";
+                    std::cin >> a;
+                    std::cout << "------------\n";
+                    std::cout << "Volume of sphere: " << volume_sphere(a) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                case 4:
+                    std::cout << "Enter ellipse radius 1: ";
+                    std::cin >> a;
+                    std::cout << "Enter ellipse radius 2: ";
+                    std::cin >> b;
+                    std::cout << "Enter ellipse radius 3: ";
+                    std::cin >> c;
+                    std::cout << "------------\n";
+                    std::cout << "Volume of ellipse: " << volume_elipsoid(a, b, c) << "\n";
+                    std::cout << "------------\n";
+                    break;
+                default:
+                    std::cout << "Invalid choice.\n";
+            }
+        }
+    }
+}
 void Calculator::calculator() {
     while (true) {
         int choice = choose();
         if (choice == 5) {
-            std::cout << "Bye :)\n";
             break;
         }
         switch (choice) {
@@ -176,6 +344,12 @@ void Calculator::calculator() {
                 break;
             case 2:
                 area();
+                break;
+            case 3:
+                perimeter();
+                break;
+            case 4:
+                volume();
                 break;
             default:
                 std::cout << "Invalid choice.\n";
